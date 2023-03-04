@@ -45,9 +45,7 @@ class CharacterFragment : Fragment() {
     }
 
     private fun onClick(character: Character){
-        val bundle = Bundle()
-        bundle.putSerializable("key", character)
-        findNavController().navigate(R.id.singleCharacterFragment, bundle)
+        findNavController().navigate(CharacterFragmentDirections.actionCharacterFragmentToSingleCharacterFragment(character))
     }
 
 }

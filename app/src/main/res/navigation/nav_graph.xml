@@ -10,11 +10,18 @@
         android:id="@+id/characterFragment"
         android:name="com.example.lesson7.CharacterFragment"
         android:label="fragment_character"
-        tools:layout="@layout/fragment_character"
-        />
+        tools:layout="@layout/fragment_character">
+        <action
+            android:id="@+id/action_characterFragment_to_singleCharacterFragment"
+            app:destination="@id/singleCharacterFragment" />
+    </fragment>
     <fragment
         android:id="@+id/singleCharacterFragment"
         android:name="com.example.lesson7.SingleCharacterFragment"
         android:label="fragment_single_character"
-        tools:layout="@layout/fragment_single_character" />
+        tools:layout="@layout/fragment_single_character">
+        <argument
+            android:name="character"
+            app:argType="com.example.lesson7.Character"/>
+    </fragment>
 </navigation>

@@ -12,6 +12,7 @@ class SingleCharacterFragment : Fragment() {
 
     private lateinit var binding:FragmentSingleCharacterBinding
 
+    private lateinit var navArgs: SingleCharacterFragmentArgs
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -22,10 +23,16 @@ class SingleCharacterFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val result:Character = arguments?.getSerializable("key")as Character
-        binding.tvCharacterName.text = result.name
-        binding.tvCharacterStatus.text = result.status
-        binding.ivSingleCharacter.setImageResource(result.image)
+        arguments?.let {
+            navArgs = SingleCharacterFragmentArgs.fromBundle(it)
+        }
+        binding.apply {
+
+            tvCharacterName.text = navArgs.character.name
+            tvCharacterStatus.text = navArgs.character.status
+            ivSingleCharacter.setImageResource(navArgs.character.image)
+        }
+
     }
 
 }
